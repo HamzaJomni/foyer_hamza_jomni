@@ -2,7 +2,15 @@ package com.example.foyerhamzajomni.DAO.Entitie;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@ToString
 
 @Entity
 @Table(name="Chambre")
@@ -14,4 +22,8 @@ public class Chambre {
     private long numchambre;
     @Enumerated(EnumType.STRING)
     private TypeChambre typeChambre;
+
+    public Chambre() {
+
+    }
 }

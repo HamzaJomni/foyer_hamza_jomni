@@ -1,6 +1,15 @@
 package com.example.foyerhamzajomni.DAO.Entitie;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@ToString
 
 
 @Entity
@@ -12,4 +21,8 @@ public class Bloc {
     private long idBloc;
     private String nomBloc;
     private long capaciteBloc;
+
+    public Bloc() {
+
+    }
 }

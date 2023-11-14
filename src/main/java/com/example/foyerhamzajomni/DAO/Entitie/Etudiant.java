@@ -3,6 +3,15 @@ package com.example.foyerhamzajomni.DAO.Entitie;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@ToString
 
 @Entity
 @Table(name="Etudiant")
@@ -16,4 +25,8 @@ public class Etudiant {
     private long cin;
     private String ecole;
     private LocalDate dateNaissance;
+
+    public Etudiant() {
+
+    }
 }
