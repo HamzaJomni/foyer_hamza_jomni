@@ -1,28 +1,30 @@
 package com.example.foyerhamzajomni.DAO.Entitie;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
+import lombok.experimental.FieldDefaults;
+import java.util.ArrayList;
+import java.util.List;
 
+@Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @ToString
+@EqualsAndHashCode
+@FieldDefaults(level = AccessLevel.PRIVATE)
 
-
-@Entity
 @Table(name="Bloc")
 public class Bloc {
     @Id
-    @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idBloc;
-    private String nomBloc;
-    private long capaciteBloc;
+     long idBloc;
+     String nomBloc;
+     long capaciteBloc;
 
-    public Bloc() {
-
-    }
+    @OneToMany(cascade = CascadeType.ALL, mappedBy="bloc")
+    List<Chambre> chambre = new ArrayList<>();
+    
+    @ManyToOne
+    Foyer foyer;
 }

@@ -1,32 +1,32 @@
 package com.example.foyerhamzajomni.DAO.Entitie;
 
 import jakarta.persistence.*;
-
-import java.time.LocalDate;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
-
-@Getter
-@Setter
-@AllArgsConstructor
-@ToString
+import lombok.*;
+import lombok.experimental.FieldDefaults;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@ToString
+@EqualsAndHashCode
+@FieldDefaults(level = AccessLevel.PRIVATE)
 @Table(name="Etudiant")
 public class Etudiant {
     @Id
-    @Column(name="identifiant")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idEtudiant;
-    private String nomEt;
-    private String prenomEt;
-    private long cin;
-    private String ecole;
-    private LocalDate dateNaissance;
+     long idEtudiant;
+     String nomEt;
+     String prenomEt;
+     long cin;
+     String ecole;
+     LocalDate dateNaissance;
 
-    public Etudiant() {
-
-    }
+    @ManyToMany(cascade = CascadeType.ALL)
+    List<Reservation>reservations = new ArrayList<>();
 }

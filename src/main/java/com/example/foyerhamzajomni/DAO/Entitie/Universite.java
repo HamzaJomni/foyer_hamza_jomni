@@ -1,27 +1,29 @@
 package com.example.foyerhamzajomni.DAO.Entitie;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
-
-@Getter
-@Setter
-@AllArgsConstructor
-@ToString
+import lombok.*;
+import lombok.experimental.FieldDefaults;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+@EqualsAndHashCode
+@FieldDefaults(level = AccessLevel.PRIVATE)
+
 @Table(name="Universite")
 public class Universite {
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idUniversite;
-    private String nomUniversite;
-    private String adresse;
+     long idUniversite;
+     String nomUniversite;
+     String adresse;
 
-    public Universite() {
-
-    }
+    @OneToOne
+    Foyer foyer;
 }

@@ -1,28 +1,27 @@
 package com.example.foyerhamzajomni.DAO.Entitie;
 
 import jakarta.persistence.*;
-
-import java.time.LocalDate;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
-
-@Getter
-@Setter
-@AllArgsConstructor
-@ToString
+import lombok.*;
+import lombok.experimental.FieldDefaults;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+@EqualsAndHashCode
+@FieldDefaults(level = AccessLevel.PRIVATE)
+
 @Table(name="Reservation")
 public class Reservation {
     @Id
-    @Column(name="identifiant")
-    private String idReservation;
-    private LocalDate anneUniversitaire;
-    private boolean estValide;
+     String idReservation;
+     Date anneUniversitaire;
+     boolean estValide;
 
-    public Reservation() {
-
-    }
+    @ManyToMany(mappedBy = "reservations", cascade = CascadeType.ALL)
+    List<Etudiant>etudiants = new ArrayList<>();
 }
