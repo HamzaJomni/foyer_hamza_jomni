@@ -3,6 +3,8 @@ package com.example.foyerhamzajomni.DAO.Entitie;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
+
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +21,7 @@ import java.util.List;
 public class Reservation {
     @Id
      String idReservation;
-     Date anneUniversitaire;
+     LocalDate anneUniversitaire;
      boolean estValide;
 
     @ManyToMany(mappedBy = "reservations", cascade = CascadeType.ALL)
