@@ -1,4 +1,4 @@
-package com.example.foyerhamzajomni.Services;
+package com.example.foyerhamzajomni.DAO.Services;
 
 import com.example.foyerhamzajomni.DAO.Repository.BlocRepository;
 import lombok.AllArgsConstructor;
