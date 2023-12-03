@@ -13,6 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @ToString
 @EqualsAndHashCode
+@Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
 
 @Table(name="Bloc")
@@ -25,7 +26,7 @@ public class Bloc {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy="bloc")//mappedBy toujours le mettre dans le child
     List<Chambre> chambre = new ArrayList<>();
-    
+
     @ManyToOne
     Foyer foyer;
 }
