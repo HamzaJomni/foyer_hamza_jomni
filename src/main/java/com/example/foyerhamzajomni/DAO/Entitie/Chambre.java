@@ -26,6 +26,7 @@ public class Chambre {
 
     @ManyToOne
     Bloc bloc;
+
     @OneToMany(cascade = CascadeType.ALL)
     List<Reservation>reservations = new ArrayList<>();
 }
